@@ -1,0 +1,44 @@
+<h3>Create</h3>
+<form (submit)='create()' #formData='ngForm'>
+  <input
+  type='text'
+  name='title'
+  required
+  placeholder='title'
+  [(ngModel)]='listing.title'
+  #title='ngModel'
+  >
+  <textarea
+  name='desc'
+  required
+  maxlength='200'
+  placeholder='Listing description here...'
+  [(ngModel)]='listing.desc'
+  #desc='ngModel'
+  ></textarea>
+  <input
+  type='number'
+  name='price'
+  required
+  min='1'
+  placeholder='Price'
+  [(ngModel)]='listing.price'
+  #price='ngModel'
+  >
+  <input
+  type='text'
+  name='location'
+  required
+  placeholder='Location'
+  [(ngModel)]='listing.location'
+  #location='ngModel'
+  >
+  <input
+  type='text'
+  name='url'
+  placeholder='Image Url'
+  [(ngModel)]='listing.url'
+  #url='ngModel'
+  >
+  <button type='submit'[disabled]='!formData.valid'>Create</button>
+</form>

@@ -1,0 +1,29 @@
+<form #formData='ngForm'>
+  <input 
+  type='text'
+  name='search'
+  required
+  placeholder='Search'
+  [(ngModel)]='searchquery'
+  (input)="search(formData)"
+  >
+  <select required name='searchby' [(ngModel)]='searchby'>
+    <option value='title'>Title</option>
+    <option value='price'>Price</option>
+    <option value='location'>Location</option>
+    <option value='desc'>Description</option>
+  </select>
+</form>
+<div class='listings'>
+  <div class='listing' *ngFor='let listing of listings'>
+    <div class='content'>
+      <h3>{{ listing.title }}</h3>
+      <p>{{ listing.desc }}</p>
+    </div>
+    <div class='sub'>
+      <p>{{listing.price | currency:us:'true'}}</p>
+      <p>{{listing.location}}</p>
+    </div>
+    <button *ngIf='listing._user == logged._id' (click)='delete(listing._id)'>Delete</button>
+  </div>
+</div>

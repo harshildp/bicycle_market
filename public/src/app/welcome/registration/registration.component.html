@@ -1,0 +1,52 @@
+<h3>Registration</h3>
+<form (submit)='register()' #formData='ngForm'>
+  <input
+  type='text'
+  name='first_name'
+  required
+  minlength='2'
+  placeholder='First name'
+  [(ngModel)]='user.first_name'
+  #first_name = 'ngModel'
+  >
+  <input
+  type='text'
+  name='last_name'
+  required
+  minlength='2'
+  placeholder='Last name'
+  [(ngModel)]='user.last_name'
+  #last_name = 'ngModel'
+  >
+  <input
+  type='text'
+  name='email'
+  required
+  minlength='2'
+  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+  placeholder='Email'
+  [(ngModel)]='user.email'
+  #email = 'ngModel'
+  >
+  <small [hidden]='email.valid || email.untouched'>Email must be in the form cheese@cheese.com'</small>
+  <input
+  type='password'
+  name='password'
+  required
+  minlength='7'
+  placeholder='Password'
+  [(ngModel)]='user.password'
+  #password = 'ngModel'
+  >
+  <input
+  type='password'
+  name='cpassword'
+  required
+  minlength='7'
+  placeholder='Password confirmation'
+  [(ngModel)]='cpassword'
+  #cp = 'ngModel'
+  >
+  <button [disabled]='!formData.valid || password.value !== cp.value'>Register</button>
+</form>
+<small *ngIf='failed'>Registration failed. Email may already be in use. Please try again!</small>

@@ -1,0 +1,24 @@
+.listings{
+    width:900px;
+    height:350px;
+    overflow-y:scroll;
+    border:1px solid black;
+    padding:10px;
+    margin-top:20px;
+}
+.listing{
+    width:95%;
+    margin:auto;
+    padding:5px;
+    height:150px;
+    border:1px solid black;    
+}
+.content{
+    width: 60%;
+    display:inline-block;
+}
+.sub{
+    display:inline-block;
+    width:35%;
+    vertical-align:top;
+}

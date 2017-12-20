@@ -1,0 +1,49 @@
+<h3>Edit/Delete Listings</h3>
+<div class='listings'>
+    <div class='listing' *ngFor='let listing of myListings'>
+        <form (submit)='update( listing._id , formData)' #formData='ngForm'>
+              <input
+              type='text'
+              name='title'
+              required
+              placeholder='Title'
+              [(ngModel)]='listing.title'
+              #title='ngModel'
+              >
+              <textarea
+              name='desc'
+              required
+              maxlength='200'
+              placeholder='Listing descrition..'
+              [(ngModel)]='listing.desc'
+              #desc='ngModel'
+              ></textarea>
+              <input
+              type='number'
+              name='price'
+              required
+              min='1'
+              placeholder='Price'
+              [(ngModel)]='listing.price'
+              #price='ngModel'
+              >
+              <input
+              type='text'
+              name='location'
+              required
+              placeholder='Location'
+              [(ngModel)]='listing.location'
+              #location='ngModel'
+              >
+              <input
+              type='text'
+              name='url'
+              placeholder='Url'
+              [(ngModel)]='listing.url'
+              #url='ngModel'
+              >
+              <button type='submit'[disabled]='!formData.valid'>Update</button>
+        </form>
+        <button (click)='delete(listing._id)'>Delete</button>        
+    </div>
+</div>

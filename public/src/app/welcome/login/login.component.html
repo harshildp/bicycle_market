@@ -1,0 +1,21 @@
+<h3>Log in</h3>
+<form (submit)='login()' #formData='ngForm'>
+  <input
+  type='text'
+  name='email'
+  required
+  placeholder='Email'
+  [(ngModel)]='user.email'
+  #email = 'ngModel'
+  >
+  <input
+  type='password'
+  name='password'
+  required
+  placeholder='Password'
+  [(ngModel)]='user.password'
+  #password = 'ngModel'
+  >
+  <button [disabled]='!formData.valid'>Login</button>
+</form>
+<small *ngIf='failed'>User login not valid. Please try again or register.</small>
